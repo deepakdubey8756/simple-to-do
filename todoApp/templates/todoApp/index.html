@@ -2,31 +2,86 @@
 {% block title %}
 Home
 {% endblock %}
+{% block css %}
+<style>
+    button{
+        border: none !important;
+        background: transparent !important;
+        color: blue !important;
+        text-decoration: underline !important;
+        font-size: medium !important;
+    }
+    .myclass{
+        margin-top: -30px;
+        background: blue !important;
+        color: white !important;
+        text-decoration: none !important;
+        font-size: medium !important;
+    }
+</style>
+{% endblock %}
 {% block content %}
-<div class="container">
-    <h2> Add New Notes</h2>
-    <form action="{% url 'index' %}" method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-            {{form}}
-            <input class="btn" type="submit" value="Submit">
-        </div>
-    </form>
-</div>
-<div class="container">
-    <h2>Notes</h2>
-    <div class="card_container">
-    {% for note in notes %}
-    <div class="card">
-            <strong class="card-title">{{note.title}}</strong>
-            <p class="card-text">{{note.description}}</p>
-            <form action="{% url 'deleteNote' id=note.id %}" name="myForm" method="POST">
+<section class="vh-100" style="background-color: #e2d5de;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+  
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-3">Awesome Todo List</h6>              
+              <form  action="{% url 'logout' %}" method="POST" class="d-flex justify-content-center align-items-center mb-4">
                 {% csrf_token %}
-                <button  type="submit" >Delete</button>
-            </form>
-    </div>
-    {% endfor %}
-</div>
-</div>
+                <a href="#">{{username}}</a>
+                <button type="submit" class="btn btn-primary btn-lg ">logout</button>
+              </form>
+              </div>
+            <div>
+              {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="{{message.tags}}" {% endif %}>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
 
+              <form  action="{% url 'index' %}" method="POST" class="d-flex justify-content-center align-items-center mb-4">
+                {% csrf_token %}
+                <div class="form-outline flex-fill">
+                  <input type="text" id="form3" class="form-control form-control-lg" name="title"/>
+                  <label class="form-label" for="form3">What do you need to do today?</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg ms-2 myclass">Add</button>
+              </form>
+  
+              <ul class="list-group mb-0">
+                {% for note in notes %}
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
+                  {% if note.isCompleted %}
+                  <div class="d-flex align-items-center">
+                    <input class="noteCheck" type="checkbox" value="" aria-label="..." checked  onclick="handleClick()"/>
+                    <s> {{note.title}}</s>
+                  </div>
+                  {% else %}
+                  <div class="d-flex align-items-center">
+                    <input class="form-check-input me-2 noteCheck" type="checkbox" value="" aria-label="..." onclick="handleClick()" />
+                    {{note.title}}
+                  </div>
+                  {% endif %}
+                  <form  action="{% url 'deleteNote' note.id %}" method="POST" class="d-flex justify-content-center align-items-center mb-4">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-lg ms-2">Delete</button>
+                  </form>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% block script%}
+  {% load static %}
+  <script src="{% static 'todoApp/index.js' %}" >
+  {% endblock %}
 {% endblock %}
