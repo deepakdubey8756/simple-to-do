@@ -10,6 +10,7 @@ This application contains features related to creating and deleting notes. It ma
 
 To get a demo of it's woking check this  link...
 
+![alt text](https://github.com/deepakdubey8756/simple-to-do/blob/main/asset/todo.png)
 
 # Design
 This document provides a high-level overview of the note taking application. The application will allow users to `create`, `edit`, and `delete notes`.
