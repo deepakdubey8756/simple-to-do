@@ -1,10 +1,10 @@
 # STDA (simple to do application)
 
 
-A simple note taking application makde using django, bootstrap, and sqlite.
+A simple note taking application makde using `django`, `bootstrap`, and `sqlite`.
 
 # Features
-This application contains features related to creating and deleting notes. It maintains a simple authentication system to authenticate user.
+This application contains features related to creating and deleting notes. It maintains a simple    `authentication` system to `authenticate` user.
 
 # Demo
 
@@ -12,7 +12,7 @@ To get a demo of it's woking check this  link...
 
 
 # Design
-This document provides a high-level overview of the note taking application. The application will allow users to create, edit, and delete notes.
+This document provides a high-level overview of the note taking application. The application will allow users to `create`, `edit`, and `delete notes`.
 
 ## User Stories:
 The following user stories will be implemented in the application:
@@ -24,8 +24,10 @@ As a user, I want to be able to delete a note.
 
 ## Models:
 The following models will be created in the application:
+
 ### Note: 
-The main model that will store information about a note, including the title and content of the note.
+The main model that will store information about a note, including the `title and content of the note.
+
 ## Views:
 The following views will be created to handle the user stories:
 ### Create Note: 
@@ -54,6 +56,16 @@ The URL for the Edit Note view, where <note_id> is the ID of the note to be edit
 
 ### deleteNote/<id>
  The URL for the Delete Note view, where <id> is the ID of the note to be deleted.
+
+
+### accounts/signup
+This url will signup user
+
+### accounts/login
+This url will login user
+
+### accounts/logout
+to logout user
 
 ## Conclusion:
 This design document outlines the basic structure of the note taking application that i have developed using Django. The application will allow users to create, view, edit, and delete notes. The models, views, templates, and URLs have been defined to provide a clear understanding of the functionalities that will be implemented in the application.

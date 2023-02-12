@@ -138,3 +138,18 @@ def logout_view(request):
         return redirect("login")
     
     return redirect('/')
+
+
+@login_required
+def addConfirm(request, pk):
+    print("I am here")
+    try:
+        note = Notes.objects.get(pk = pk)
+        print("Previous ", note.isCompleted)
+        note.isCompleted = not note.isCompleted
+        note.save()
+        print("After: ", note.isCompleted)
+
+    except Exception as e:
+        print(e)
+    return redirect('/')
