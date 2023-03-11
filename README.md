@@ -18,10 +18,11 @@ This document provides a high-level overview of the note taking application. The
 ## User Stories:
 The following user stories will be implemented in the application:
 
-As a user, I want to be able to create a new note.
-As a user, I want to be able to view all my notes.
-As a user, I want to be able to edit a note.
-As a user, I want to be able to delete a note.
+As a user I want to be able to 
+1. create a new note.
+2. view all my notes.
+3. edit a note.
+4. delete a note.
 
 ## Models:
 The following models will be created in the application:
