@@ -1,14 +1,14 @@
 # STDA (simple to do application)
 
 
-A simple note taking application makde using `django`, `bootstrap`, and `sqlite`.
+A simple note taking application made using `django`, `bootstrap`, and `sqlite`.
 
 # Features
 This application contains features related to creating and deleting notes. It maintains a simple    `authentication` system to `authenticate` user.
 
 # Demo
 
-To get a demo of it's woking check this  link...
+To get a demo of it's woking check this [demo website] (https://simpletodo.pythonanywhere.com)
 
 ![alt text](https://github.com/deepakdubey8756/simple-to-do/blob/main/asset/todo.png)
 
